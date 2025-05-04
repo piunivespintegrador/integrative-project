@@ -448,7 +448,7 @@
                     </button>
                 </a>
                 <br>
-                <a href="inov.html">
+                <a href="inov.php">
                     <button style="
                         position: relative; /* Para garantir que transform funcione */
                         transform: translateX(-300px); /* Move o botão 250px para a direita */
@@ -503,7 +503,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9734;</span> (4.0)
                     </div>
-                    <a href="correia.html">
+                    <a href="correia.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -517,7 +517,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="lampada.html">
+                    <a href="lampada.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -531,7 +531,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="disco.html">
+                    <a href="disco.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -545,7 +545,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="Moura.html">
+                    <a href="Moura.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -564,7 +564,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9734;</span> (4.0)
                     </div>
-                    <a href="oleo.html">
+                    <a href="oleo.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -578,7 +578,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="SY.html">
+                    <a href="SY.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -592,7 +592,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="roda.html">
+                    <a href="roda.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -606,7 +606,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="pioneiro.html">
+                    <a href="pioneiro.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -647,10 +647,10 @@ De segunda a sexta-feira das 08h às 18h.
         <div class="links-footer">
             <h3>Links</h3>
             <ul>
-                <li><a href="index.html" style="text-decoration: none; color: rgb(182, 179, 179);">Home</a></li>
-                <li><a href="produto.html" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
-                <li><a href="sobre.html" style="text-decoration: none; color: rgb(182, 179, 179);">Sobre</a></li>
-                <li><a href="Cadastro011/cadastro.html" style="text-decoration: none; color: rgb(182, 179, 179);">Cadastro</a></li>
+                <li><a href="index.php" style="text-decoration: none; color: rgb(182, 179, 179);">Home</a></li>
+                <li><a href="produto.php" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
+                <li><a href="sobre.php" style="text-decoration: none; color: rgb(182, 179, 179);">Sobre</a></li>
+                <li><a href="Cadastro011/cadastro.php" style="text-decoration: none; color: rgb(182, 179, 179);">Cadastro</a></li>
             </ul>
         </div>
     </div>

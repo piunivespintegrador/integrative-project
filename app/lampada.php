@@ -416,21 +416,21 @@
             <aside style="display: flex; align-items: center;">
                 <div class="zoom">
                     <div class="original">
-                        <img src="images/produto/3.png" id="target">
+                        <img src="images/produto/01.png" id="target">
                     </div>
                     <div class="viewer">
-                        <img src="images/produto/3.png">
+                        <img src="images/produto/01.png">
                     </div>
                 </div>
                 <!-- Availability text -->
                 <div class="availability-container" style="position: relative; top: -130px;"> <!-- Ajuste o valor conforme necessário -->
-                    <div class="availability"> <strong>Kit Rolamento <span style="color: #fd0101;">Roda Traseira</span></strong> <br>
+                    <div class="availability"> <strong>LÂMPADA<span style="color: #fd0101;"> H4 12V</span></strong> <br>
                     </div>
                    </div>
                    <a href="https://api.whatsapp.com/send?phone=5513996131106">
                     <button style=" 
                         position: relative; /* Para garantir que transform funcione */
-                        transform: translateX(-280px); 
+                        transform: translateX(-210px); 
                         padding: 10px 20px; /* Ajusta o preenchimento interno do botão */
                         margin: 5px; /* Adiciona uma margem ao redor do botão */
                         background-color: #fd0101; /* Cor de fundo */
@@ -451,7 +451,7 @@
                 <a href="inov.php">
                     <button style="
                         position: relative; /* Para garantir que transform funcione */
-                        transform: translateX(-280px); /* Move o botão 250px para a direita */
+                        transform: translateX(-210px); /* Move o botão 250px para a direita */
                         padding: 10px 20px; /* Ajusta o preenchimento interno do botão */
                         margin: 5px; /* Adiciona uma margem ao redor do botão */
                         background-color: #fd0101; /* Cor de fundo */
@@ -475,12 +475,13 @@
     
 <!-- Image gallery directly under the main image -->
 <div class="gallery">
-    <img src="images/produto/3.png" class="thumb active" alt="Image 1">
-    <img src="images/produto/22.png" class="thumb" alt="Image 2">
-    <img src="images/produto/3.png" class="thumb" alt="Image 3">
+    <img src="images/produto/01.png" class="thumb active" alt="Image 1">
+    <img src="images/produto/264119-1.png" class="thumb" alt="Image 2">
+    <img src="images/produto/264119-2.png" class="thumb" alt="Image 3">
+    <img src="images/produto/oi.jpg" class="thumb" alt="Image 4">
 
     <div class="availability-container">
-        <div class="availability" style="visibility: hidden;">ISCO 000000000DE FREIO DIANT IIIFEEDIANTF</div>
+        <div class="availability" style="visibility: hidden;">ISCO DE FREIO DI IANTFEEDIANTF</div>
     </div>
 </div>
 
@@ -490,7 +491,7 @@
        
 
         <!-- Produtos Mais Vendidos -->
-        <section class="section" style="position: relative; top: -180px;">
+        <section class="section" style="position: relative; top: -100px;">
             <h2 id="vendidos">Produtos Mais Vendidos</h2>
             <div class="grid" id="productGrid">
                 <div class="card" data-name="Correia Raiada">
@@ -503,7 +504,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9734;</span> (4.0)
                     </div>
-                    <a href="correia.php">
+                    <a href="lampada.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>

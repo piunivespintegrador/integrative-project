@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Online - Design Profissional</title>
     <style>
@@ -250,6 +251,154 @@
     }
 
     </style>
+      <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+            color: #333;
+            font-size: 2rem;
+        }
+        .f {
+            display: flex;
+            flex-wrap: wrap; /* Permitir que os itens se movam para a próxima linha */
+        }
+        .a {
+            align-items: center;
+        }
+        .j {
+            justify-content: center;
+        }
+        .cn {
+            height: 100vh;
+            padding: 20px;
+        }
+        .wp {
+            --t: 900px;
+            width: var(--t);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mgt {
+            margin-top: 10px;
+        }
+        /* Zoom styles */
+        .zoom, .original {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #target {
+            width: calc(var(--t) / 2);
+            transition: opacity 0.3s ease;
+        }
+        .zoom .viewer img {
+            position: absolute;
+        }
+        .magnifier {
+            display: none; /* Lupa removida */
+        }
+        .magnifier, .viewer {
+            display: none;
+        }
+        .original:hover ~ div {
+            display: block;
+        }
+        .original::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        /* Styles for the image gallery */
+        .gallery {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+        }
+        .gallery img {
+            width: 100px;
+            cursor: pointer;
+            transition: transform 0.3s ease, border 0.3s ease;
+            border: 2px solid transparent;
+            border-radius: 5px;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+            border-color: #007bff;
+        }
+        .gallery img.active {
+            border-color: #007bff;
+            transform: scale(1.1);
+        }
+        /* Scrollbar styling */
+        .gallery::-webkit-scrollbar {
+            height: 6px;
+        }
+        .gallery::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 3px;
+        }
+        /* New styles for the availability text */
+        .availability {
+            margin-left: 10px; /* Diminuiu a margem */
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .availability-container {
+            display: flex;
+            align-items: center;
+            margin-left: 20px; /* Espaço entre a imagem e o texto */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .wp {
+                width: 100%; /* Ocupa 100% da largura da tela */
+            }
+            #target {
+                width: 80%; /* Ajusta a largura da imagem principal */
+            }
+            .gallery {
+                flex-direction: row; /* Mantém as imagens em uma linha */
+                overflow-x: auto; /* Permite rolagem horizontal */
+                padding: 10px 0; /* Adiciona um espaço em volta da galeria */
+            }
+            .gallery img {
+                width: 70px; /* Diminui o tamanho das miniaturas */
+            }
+            h1 {
+                font-size: 1.5rem; /* Ajusta o tamanho do título */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2rem; /* Ajusta ainda mais o tamanho do título */
+            }
+            .availability {
+                font-size: 1.2rem; /* Ajusta o tamanho do texto de disponibilidade */
+            }
+        }
+        
+    </style>
 </head>
 <body>
 
@@ -260,25 +409,89 @@
             <button onclick="searchProduct()">Buscar</button>
         </div>
     </header>
+    <h1 style="visibility: hidden;" >Produto - E-commerce</h1>
+    <div style="position: relative; top: -90px;" class="cn f a j">
+        <div class="wp">
+            <!-- Main image section -->
+            <aside style="display: flex; align-items: center;">
+                <div class="zoom">
+                    <div class="original">
+                        <img src="images/produto/disco01.png" id="target">
+                    </div>
+                    <div class="viewer">
+                        <img src="images/produto/disco01.png">
+                    </div>
+                </div>
+                <!-- Availability text -->
+                <div class="availability-container" style="position: relative; top: -130px;"> <!-- Ajuste o valor conforme necessário -->
+                    <div class="availability"> <strong>DISCO DE<span style="color: #fd0101;"> FREIO DIANT</span></strong> <br>
+                    </div>
+                   </div>
+                   <a href="https://api.whatsapp.com/send?phone=5513996131106">
+                    <button style=" 
+                        position: relative; /* Para garantir que transform funcione */
+                        transform: translateX(-250px); 
+                        padding: 10px 20px; /* Ajusta o preenchimento interno do botão */
+                        margin: 5px; /* Adiciona uma margem ao redor do botão */
+                        background-color: #fd0101; /* Cor de fundo */
+                        color: white; /* Cor do texto */
+                        border: none; /* Remove a borda padrão */
+                        border-radius: 25px; /* Arredonda os cantos do botão */
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+                        font-size: 16px; /* Ajusta o tamanho da fonte */
+                        cursor: pointer; /* Muda o cursor ao passar o mouse */
+                        transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+                    " 
+                    onmouseover="this.style.backgroundColor='#c70000'" 
+                    onmouseout="this.style.backgroundColor='#fd0101'">
+                    Comprar
+                    </button>
+                </a>
+                <br>
+                <a href="inov.php">
+                    <button style="
+                        position: relative; /* Para garantir que transform funcione */
+                        transform: translateX(-250px); /* Move o botão 250px para a direita */
+                        padding: 10px 20px; /* Ajusta o preenchimento interno do botão */
+                        margin: 5px; /* Adiciona uma margem ao redor do botão */
+                        background-color: #fd0101; /* Cor de fundo */
+                        color: white; /* Cor do texto */
+                        border: none; /* Remove a borda padrão */
+                        border-radius: 6px; /* Arredonda os cantos do botão */
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+                        font-size: 16px; /* Ajusta o tamanho da fonte */
+                        cursor: pointer; /* Muda o cursor ao passar o mouse */
+                        transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+                    " 
+                    onmouseover="this.style.backgroundColor='#c70000'" 
+                    onmouseout="this.style.backgroundColor='#fd0101'">
+                    Início
+                    </button>
+                </a>
+                
+                   
 
+</aside>
+    
+<!-- Image gallery directly under the main image -->
+<div class="gallery">
+    <img src="images/produto/disco01.png" class="thumb active" alt="Image 1">
+    <img src="images/produto/disco02.png" class="thumb" alt="Image 2">
+    <img src="images/produto/disco03.png" class="thumb" alt="Image 3">
+    <img src="images/produto/disco04.png" class="thumb" alt="Image 4">
+
+    <div class="availability-container">
+        <div class="availability" style="visibility: hidden;">ISCO DE FREIO DIANT IANTFEEDIANTF</div>
+    </div>
+</div>
+
+</div>
+</div>
     <div class="container">
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="#vendidos">Mais Vendidos</a></li>
-                <li><a href="#Novidades">Novidades</a></li>
-                <li><a href="contact.html">Contato</a></li>
-            </ul>
-        </nav>
-
-        <!-- Banner Principal -->
-        <div class="banner">
-            <h1>Ofertas Imperdíveis!</h1>
-            <p>Compre agora e aproveite os melhores preços!</p>
-        </div>
+       
 
         <!-- Produtos Mais Vendidos -->
-        <section class="section">
+        <section class="section" style="position: relative; top: -200px;">
             <h2 id="vendidos">Produtos Mais Vendidos</h2>
             <div class="grid" id="productGrid">
                 <div class="card" data-name="Correia Raiada">
@@ -291,7 +504,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9734;</span> (4.0)
                     </div>
-                    <a href="correia.html">
+                    <a href="correia.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -305,7 +518,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="lampada.html">
+                    <a href="lampada.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -319,7 +532,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="disco.html">
+                    <a href="disco.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -333,13 +546,13 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="Moura.html">
+                    <a href="Moura.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
             </div>
-        </section>
-        <section class="section">
+        </sectio >
+        <section style="position: relative; top: -30px;" class="section">
             <h2 class="section-title" id="Novidades">Novidades</h2>
             <div class="grid" id="productGrid">
                 <div class="card" data-name="Óleo de Motor Radnaq 20W50">
@@ -352,7 +565,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9734;</span> (4.0)
                     </div>
-                    <a href="oleo.html">
+                    <a href="oleo.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -366,7 +579,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="SY.html">
+                    <a href="SY.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -380,7 +593,7 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="roda.html">
+                    <a href="roda.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
@@ -394,15 +607,102 @@
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span> (5.0)
                     </div>
-                    <a href="pioneiro.html">
+                    <a href="pioneiro.php">
                         <button style="position: relative; top: -20px;">Confira</button>
                     </a>
                 </div>
             </div>
         </section>
-        
     </div>
     
+
+   
+
+
+<footer  class="gray-background" >
+    <div class="page-inner-content footer-content">
+        <div class="download-options">
+           <div>
+            <img src="images/logo.png" alt="">
+           </div>
+        </div>
+        <div class="logo-footer">
+            <h1 class="logo">AUTO<span>PEÇAS</span></h1>
+            <p>
+                ATENDIMENTO WHATSAPP
+Converse pelo WhatsApp com um de nossos especialistas.
+
+De segunda a sexta-feira das 08h às 18h.
+ 
+<div style="margin: 6px;"></div>
+<div style="display: flex; align-items: center; justify-content: center;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16" style="margin-right: 5px;">
+        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+    </svg>
+    <a href="https://api.whatsapp.com/send?phone=5513996131106" target="_blank" style="text-decoration: none; color: inherit;"><span>+55 13 99613-1106</span></a>
+</div>
+
+               </p>
+        </div>
+
+        <div class="links-footer">
+            <h3>Links</h3>
+            <ul>
+                <li><a href="index.php" style="text-decoration: none; color: rgb(182, 179, 179);">Home</a></li>
+                <li><a href="produto.php" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
+                <li><a href="sobre.php" style="text-decoration: none; color: rgb(182, 179, 179);">Sobre</a></li>
+                <li><a href="Cadastro011/cadastro.php" style="text-decoration: none; color: rgb(182, 179, 179);">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr class="page-inner-content"/>
+    <div class="page-inner-content copyright">
+        <p>GeralPeças 2024 - GeralPeças - Todos Direitos Reservados</p>
+    </div>
+</footer>
+
+<script>
+    const navbar = document.querySelector(".navbar");
+    const menuButton = document.querySelector(".menu-button");
+
+    menuButton>addEventListener("click",() => {
+        navbar.classList.toggle("show-menu")
+    })
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<script type="text/javascript" src="js/zoom.js"></script>
+<script type="text/javascript">
+    // Initialize zoom
+    var l = $('#target').zoom(2);
+
+    // Change zoom level
+    $('input[type="range"]').on('change', function () {
+        l.setZoom(this.value);
+    });
+
+    // Gallery image click event
+    $('.gallery img').on('click', function () {
+        // Remove 'active' class from all thumbnails
+        $('.gallery img').removeClass('active');
+        
+        // Add 'active' class to the clicked thumbnail
+        $(this).addClass('active');
+        
+        var newSrc = $(this).attr('src');
+        
+        // Update the main image with a smooth transition
+        $('#target').css('opacity', 0);
+        setTimeout(function () {
+            $('#target').attr('src', newSrc);
+            $('.viewer img').attr('src', newSrc);
+            $('#target').css('opacity', 1);
+        }, 300);
+        
+        // Reset zoom when image is changed
+        l.setZoom(2);
+    });
+</script>
 
     <script>
         function searchProduct() {
