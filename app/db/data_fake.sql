@@ -7,11 +7,11 @@ INSERT INTO `user` (user_name, user_email, user_password, telphone, state, city,
 
 
 INSERT INTO `image` (image_name, image_description, image_uri, created_at, updated_at) VALUES
-('Fone Bluetooth', 'Imagem de um fone sem fio', '/img/fone.jpg', NOW(), NOW()),
-('Smartphone', 'Imagem de um smartphone moderno', '/img/smartphone.jpg', NOW(), NOW()),
-('Notebook Gamer', 'Imagem de um notebook para jogos', '/img/notebook.jpg', NOW(), NOW()),
-('Câmera Digital', 'Imagem de uma câmera compacta', '/img/camera.jpg', NOW(), NOW()),
-('Smartwatch', 'Imagem de um relógio inteligente', '/img/smartwatch.jpg', NOW(), NOW());
+('Fone Bluetooth', 'Imagem de um fone sem fio', '/images/products/1.png', NOW(), NOW()),
+('Smartphone', 'Imagem de um smartphone moderno', '/images/products/2.png', NOW(), NOW()),
+('Notebook Gamer', 'Imagem de um notebook para jogos', '/images/products/2.png', NOW(), NOW()),
+('Câmera Digital', 'Imagem de uma câmera compacta', '/images/products/3.png', NOW(), NOW()),
+('Smartwatch', 'Imagem de um relógio inteligente', '/images/products/4.png', NOW(), NOW());
 
 INSERT INTO `product` (image_id, product_name, product_description, product_price, created_at, updated_at) VALUES
 (1, 'Fone Bluetooth', 'Fone com cancelamento de ruído e longa duração.', 199.90, NOW(), NOW()),
