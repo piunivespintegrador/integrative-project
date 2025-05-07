@@ -9,9 +9,9 @@ INSERT INTO `user` (user_name, user_email, user_password, telphone, state, city,
 INSERT INTO `image` (image_name, image_description, image_uri, created_at, updated_at) VALUES
 ('Correia', 'Imagem de uma Correia', '/images/products/1.png', NOW(), NOW()),
 ('Lampada', 'Imagem de uma Lampada', '/images/products/2.png', NOW(), NOW()),
-('Disco de Freio', 'Imagem de um Disco de Freio', '/images/products/2.png', NOW(), NOW()),
-('Bateria Moura', 'Imagem de uma Bateria da Moura', '/images/products/3.png', NOW(), NOW()),
-('Oléo de Motor 20w50 da Radnaq', 'Imagem de um Oléo de Motor 20w50 da Radnaq', '/images/products/4.png', NOW(), NOW());
+('Disco de Freio', 'Imagem de um Disco de Freio', '/images/products/3.png', NOW(), NOW()),
+('Bateria Moura', 'Imagem de uma Bateria da Moura', '/images/products/4.png', NOW(), NOW()),
+('Oléo de Motor 20w50 da Radnaq', 'Imagem de um Oléo de Motor 20w50 da Radnaq', '/images/products/5.png', NOW(), NOW());
 
 INSERT INTO `product` (image_id, product_name, product_description, product_price, created_at, updated_at) VALUES
 (1, 'Correia', 'Correia para seu automóvel', 199.90, NOW(), NOW()),
