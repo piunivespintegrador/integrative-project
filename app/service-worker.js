@@ -1,17 +1,17 @@
 const cacheName = 'pwa-cache-v1';
 const filesToCache = [
-  'index.html',
-  'sobre.html',
-  'contact.html',
+  'index.php',
+  'sobre.php',
+  'contact.php',
   'styles/style.css',
   'js/app.js',
   'manifest.json',
   'images/logo.png',
-  'correia.html',
-  'disco.html',
-  'inov.html',
-  'lampada.html',
-  'Moura.html',
+  'correia.php',
+  'disco.php',
+  'inov.php',
+  'lampada.php',
+  'Moura.php',
 ];
 
 self.addEventListener('install', event => {

@@ -1,3 +1,31 @@
+<?php
+    include_once('SISTEMA/config.php');
+?>
+
+<?php
+    // consulta para pegar 3 imagens aleatórias
+    $sql = "SELECT `image_uri` FROM `image` ORDER BY RAND() LIMIT 3";
+    $result = $connection->query($sql);
+
+    $images = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $images[] = $row['image_uri'];
+        }
+    }
+
+    // consulta para pegar 4 produtos aleatórias
+    $sql = "SELECT `product`.*, `image`.* FROM `product` JOIN `image` ON product.image_id = image.image_id ORDER BY RAND() LIMIT 4";
+    $result = $connection->query($sql);
+
+    $products = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $products[] = $row;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,12 +41,13 @@
 <body>
     <div class="navbar">
         <div class="header-inner-content">
-            <h1 class="logo">GERAL<span>PEÇAS</span></h1>
+            <h1 class="logo">GERAL<span> PEÇAS</span></h1>
             <nav>
                 <ul>
-                    <li><a href="index.html" style="text-decoration: none; color: rgb(255, 255, 255);">HOME</a></li> 
-                    <li><a href="inov.html" style="text-decoration: none; color: rgb(255, 255, 255);">Produtos</a></li> 
-                    <li><a href="sobre.html" style="text-decoration: none; color: rgb(255, 255, 255);">Sobre</a></li> 
+                    <li><a href="index.php" style="text-decoration: none; color: rgb(255, 255, 255);">Home</a></li>
+                    <li><a href="inov.php" style="text-decoration: none; color: rgb(255, 255, 255);">Produtos</a></li>
+                    <li><a href="sobre.php" style="text-decoration: none; color: rgb(255, 255, 255);">Sobre</a></li>
+                    <li><a href="contact.php" style="text-decoration: none; color: rgb(255, 255, 255);">Contato</a></li>
                     <li><a href="SISTEMA/home.php" style="text-decoration: none; color: rgb(255, 255, 255);">Cadastro</a></li>
  
                  </ul>
@@ -66,7 +95,7 @@
             }
           </style>
           
-        <button><a href="inov.html" style="color: white;"> Ver agora</a> &#8594;</button>
+        <button><a href="inov.php" style="color: white;"> Ver agora</a> &#8594;</button>
 
     </div>
     <div class="header-buttom-side-right">
@@ -80,9 +109,18 @@
     <div class="gray-background">
         <div class="page-inner-content">
         <div class="cols cols-3">
-            <img src="images/products/4.png" alt="">
-            <img src="images/products/5.png" alt="">
-            <img src="images/products/6.png" alt="">
+            <!---
+                <img src="images/products/4.png" alt="">
+                <img src="images/products/5.png" alt="">
+                <img src="images/products/6.png" alt="">
+            -->
+            <?php foreach ($images as $image): ?>
+                <img src="
+                    <?php
+                        echo htmlspecialchars($image);
+                    ?>" alt="">
+            <?php endforeach; ?>
+
         </div>
         </div>
     </div>
@@ -92,13 +130,47 @@
             <h3 class="section-title">Amostra</h3>
             <div class="subtitle-underline"></div>
             <div class="cols cols-4">
-                <div class="product">
+                <?php foreach ($products as $product): ?>
+                    <div class="product">
+                            <img src="
+                            <?php
+                                echo htmlspecialchars($product['image_uri']);
+                            ?>" alt="">
+                            <p class="product-name">
+                            <?php
+                                echo htmlspecialchars($product['product_name']);
+                            ?></p>
+                            <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                            <div style="font-size: 16px;">
+                                <!-- Botão com estilos CSS -->
+                                <a href="product.php?product_id=
+                                <?php 
+                                    echo $product['product_id'];
+                                ?>" style="display: inline-block;
+                                                    padding: 2px 5px;
+                                                    background-color: #FF0000; /* Vermelho */
+                                                    color: #FFFFFF; /* Texto branco */
+                                                    font-family: Arial, sans-serif;
+                                                    font-size: 16px;
+                                                    text-align: center;
+                                                    text-decoration: none;
+                                                    border: none;
+                                                    border-radius: 5px;
+                                                    cursor: pointer;
+                                                    transition: background-color 0.3s ease;"
+                                onmouseover="this.style.backgroundColor='#CC0000'"
+                                onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                <!--<div class="product">
                     <img src="images/products/1.png" alt="">
                     <p class="product-name">Correia Raiada</p>
                     <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <div style="font-size: 16px;">
+                    <div style="font-size: 16px;"> -->
                         <!-- Botão com estilos CSS -->
-                        <a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
+                        <!--<a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
                                             padding: 2px 5px;
                                             background-color: #FF0000; /* Vermelho */
                                             color: #FFFFFF; /* Texto branco */
@@ -113,15 +185,15 @@
                            onmouseover="this.style.backgroundColor='#CC0000'"
                            onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
                     </div>
-                </div>
+                </div>-->
 
-                <div class="product">
+                <!--<div class="product">
                     <img src="images/products/2.png" alt="">
                     <p class="product-name">Lâmpada H4 12V</p>
                     <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <div style="font-size: 16px;">
+                    <div style="font-size: 16px;">-->
                         <!-- Botão com estilos CSS -->
-                        <a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
+                        <!--<a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
                                             padding: 2px 5px;
                                             background-color: #FF0000; /* Vermelho */
                                             color: #FFFFFF; /* Texto branco */
@@ -136,15 +208,15 @@
                            onmouseover="this.style.backgroundColor='#CC0000'"
                            onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
                     </div>
-                </div>
+                </div>-->
 
-                <div class="product">
+                <!--<div class="product">
                     <img src="images/products/3.png" alt="">
                     <p class="product-name">Disco de freio</p>
                     <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <div style="font-size: 16px;">
+                    <div style="font-size: 16px;"> -->
                         <!-- Botão com estilos CSS -->
-                        <a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
+                        <!--<a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
                                             padding: 2px 5px;
                                             background-color: #FF0000; /* Vermelho */
                                             color: #FFFFFF; /* Texto branco */
@@ -159,15 +231,15 @@
                            onmouseover="this.style.backgroundColor='#CC0000'"
                            onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
                     </div>
-                </div>
+                </div>-->
 
-                <div class="product">
+                <!--<div class="product">
                     <img src="images/products/4.png" alt="">
                     <p class="product-name">Bateria Moura 60Ah</p>
                     <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <div style="font-size: 16px;">
+                    <div style="font-size: 16px;">-->
                         <!-- Botão com estilos CSS -->
-                        <a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
+                        <!--<a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
                                             padding: 2px 5px;
                                             background-color: #FF0000; /* Vermelho */
                                             color: #FFFFFF; /* Texto branco */
@@ -182,8 +254,7 @@
                            onmouseover="this.style.backgroundColor='#CC0000'"
                            onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
                     </div>
-                </div>
-                  
+                </div>-->
             </div>
         </div>
     </div>
@@ -213,7 +284,7 @@
     </div>
 <br><br>
     <div>
-        <h1 style="text-align: center;">Motivos para Comprar na <span style="color: rgb(255, 0, 0);">GERAL</span>PEÇAS</h1>
+        <h1 style="text-align: center;">Motivos para Comprar na <span style="color: rgb(255, 0, 0);">GERAL</span> PEÇAS</h1>
         <div class="page-inner-contant">
             <div class="testimonials">
                 <div class="testimonial">
@@ -275,10 +346,10 @@ De segunda a sexta-feira das 08h às 18h.
         <div class="links-footer">
             <h3>Links</h3>
             <ul>
-                <li><a href="index.html" style="text-decoration: none; color: rgb(182, 179, 179);">Home</a></li>
-                <li><a href="produto.html" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
-                <li><a href="sobre.html" style="text-decoration: none; color: rgb(182, 179, 179);">Sobre</a></li>
-                <li><a href="Cadastro011/cadastro.html" style="text-decoration: none; color: rgb(182, 179, 179);">Cadastro</a></li>
+                <li><a href="index.php" style="text-decoration: none; color: rgb(182, 179, 179);">Home</a></li>
+                <li><a href="produto.php" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
+                <li><a href="sobre.php" style="text-decoration: none; color: rgb(182, 179, 179);">Sobre</a></li>
+                <li><a href="Cadastro011/cadastro.php" style="text-decoration: none; color: rgb(182, 179, 179);">Cadastro</a></li>
             </ul>
         </div>
     </div>
