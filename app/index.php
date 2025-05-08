@@ -15,7 +15,23 @@
     }
 
     // consulta para pegar 4 produtos aleatórias
-    $sql = "SELECT `product`.*, `image`.* FROM `product` JOIN `image` ON product.image_id = image.image_id ORDER BY RAND() LIMIT 4";
+    /*
+    $sql = "SELECT `product`.*, `image`.* 
+    FROM `product` 
+    JOIN `image` 
+        ON product.image_id = image.image_id 
+    ORDER BY RAND() LIMIT 4";
+    */
+
+    $sql = "SELECT `product`.*, `image`.*, `product_rating`.*
+            FROM `product`
+            INNER JOIN `product_rating` 
+                ON product.product_id = product_rating.product_id
+            INNER JOIN `image` 
+                ON product.image_id = image.image_id
+            ORDER BY product_rating.rating DESC
+        LIMIT 4";
+
     $result = $connection->query($sql);
 
     $products = [];
@@ -44,8 +60,8 @@
             <h1 class="logo">GERAL<span> PEÇAS</span></h1>
             <nav>
                 <ul>
-                    <li><a href="index.php" style="text-decoration: none; color: rgb(255, 255, 255);">Home</a></li>
-                    <li><a href="inov.php" style="text-decoration: none; color: rgb(255, 255, 255);">Produtos</a></li>
+                    <li><a href="/" style="text-decoration: none; color: rgb(255, 255, 255);">Home</a></li>
+                    <li><a href="list.php" style="text-decoration: none; color: rgb(255, 255, 255);">Produtos</a></li>
                     <li><a href="sobre.php" style="text-decoration: none; color: rgb(255, 255, 255);">Sobre</a></li>
                     <li><a href="contact.php" style="text-decoration: none; color: rgb(255, 255, 255);">Contato</a></li>
                     <li><a href="SISTEMA/home.php" style="text-decoration: none; color: rgb(255, 255, 255);">Cadastro</a></li>
@@ -95,7 +111,7 @@
             }
           </style>
           
-        <button><a href="inov.php" style="color: white;"> Ver agora</a> &#8594;</button>
+        <button><a href="list.php" style="color: white;"> Ver agora</a> &#8594;</button>
 
     </div>
     <div class="header-buttom-side-right">
@@ -135,12 +151,29 @@
                             <img src="
                             <?php
                                 echo htmlspecialchars($product['image_uri']);
-                            ?>" alt="">
+                            ?>" alt="
+                            <?php
+                                echo htmlspecialchars($product['image_description']);
+                            ?>">
                             <p class="product-name">
                             <?php
                                 echo htmlspecialchars($product['product_name']);
                             ?></p>
-                            <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                            <span>
+                            <?php
+                                echo htmlspecialchars($product['review']);
+                            ?></span>
+                            
+                            <p class="rate">
+                            <?php 
+                            for ($rate = 0; $rate < $product['rating']; $rate++):
+                                echo "&#9733;";
+                            endfor;
+                            for ($rate = $product['rating'] ; $rate < 5; $rate++):
+                                echo "&#9734;";
+                            endfor;
+                            ?></p>
+
                             <div style="font-size: 16px;">
                                 <!-- Botão com estilos CSS -->
                                 <a href="product.php?product_id=
@@ -163,98 +196,6 @@
                             </div>
                         </div>
                     <?php endforeach; ?>
-
-                <!--<div class="product">
-                    <img src="images/products/1.png" alt="">
-                    <p class="product-name">Correia Raiada</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <div style="font-size: 16px;"> -->
-                        <!-- Botão com estilos CSS -->
-                        <!--<a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
-                                            padding: 2px 5px;
-                                            background-color: #FF0000; /* Vermelho */
-                                            color: #FFFFFF; /* Texto branco */
-                                            font-family: Arial, sans-serif;
-                                            font-size: 16px;
-                                            text-align: center;
-                                            text-decoration: none;
-                                            border: none;
-                                            border-radius: 5px;
-                                            cursor: pointer;
-                                            transition: background-color 0.3s ease;"
-                           onmouseover="this.style.backgroundColor='#CC0000'"
-                           onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
-                    </div>
-                </div>-->
-
-                <!--<div class="product">
-                    <img src="images/products/2.png" alt="">
-                    <p class="product-name">Lâmpada H4 12V</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <div style="font-size: 16px;">-->
-                        <!-- Botão com estilos CSS -->
-                        <!--<a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
-                                            padding: 2px 5px;
-                                            background-color: #FF0000; /* Vermelho */
-                                            color: #FFFFFF; /* Texto branco */
-                                            font-family: Arial, sans-serif;
-                                            font-size: 16px;
-                                            text-align: center;
-                                            text-decoration: none;
-                                            border: none;
-                                            border-radius: 5px;
-                                            cursor: pointer;
-                                            transition: background-color 0.3s ease;"
-                           onmouseover="this.style.backgroundColor='#CC0000'"
-                           onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
-                    </div>
-                </div>-->
-
-                <!--<div class="product">
-                    <img src="images/products/3.png" alt="">
-                    <p class="product-name">Disco de freio</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <div style="font-size: 16px;"> -->
-                        <!-- Botão com estilos CSS -->
-                        <!--<a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
-                                            padding: 2px 5px;
-                                            background-color: #FF0000; /* Vermelho */
-                                            color: #FFFFFF; /* Texto branco */
-                                            font-family: Arial, sans-serif;
-                                            font-size: 16px;
-                                            text-align: center;
-                                            text-decoration: none;
-                                            border: none;
-                                            border-radius: 5px;
-                                            cursor: pointer;
-                                            transition: background-color 0.3s ease;"
-                           onmouseover="this.style.backgroundColor='#CC0000'"
-                           onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
-                    </div>
-                </div>-->
-
-                <!--<div class="product">
-                    <img src="images/products/4.png" alt="">
-                    <p class="product-name">Bateria Moura 60Ah</p>
-                    <p class="rate">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
-                    <div style="font-size: 16px;">-->
-                        <!-- Botão com estilos CSS -->
-                        <!--<a href="https://api.whatsapp.com/send?phone=5513996131106" style="display: inline-block;
-                                            padding: 2px 5px;
-                                            background-color: #FF0000; /* Vermelho */
-                                            color: #FFFFFF; /* Texto branco */
-                                            font-family: Arial, sans-serif;
-                                            font-size: 16px;
-                                            text-align: center;
-                                            text-decoration: none;
-                                            border: none;
-                                            border-radius: 5px;
-                                            cursor: pointer;
-                                            transition: background-color 0.3s ease;"
-                           onmouseover="this.style.backgroundColor='#CC0000'"
-                           onmouseout="this.style.backgroundColor='#FF0000'">Confira</a>
-                    </div>
-                </div>-->
             </div>
         </div>
     </div>
@@ -346,8 +287,8 @@ De segunda a sexta-feira das 08h às 18h.
         <div class="links-footer">
             <h3>Links</h3>
             <ul>
-                <li><a href="index.php" style="text-decoration: none; color: rgb(182, 179, 179);">Home</a></li>
-                <li><a href="produto.php" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
+                <li><a href="/" style="text-decoration: none; color: rgb(182, 179, 179);">Home</a></li>
+                <li><a href="list.php" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
                 <li><a href="sobre.php" style="text-decoration: none; color: rgb(182, 179, 179);">Sobre</a></li>
                 <li><a href="Cadastro011/cadastro.php" style="text-decoration: none; color: rgb(182, 179, 179);">Cadastro</a></li>
             </ul>

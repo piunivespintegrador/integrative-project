@@ -7,11 +7,7 @@ const filesToCache = [
   'js/app.js',
   'manifest.json',
   'images/logo.png',
-  'correia.php',
-  'disco.php',
-  'inov.php',
-  'lampada.php',
-  'Moura.php',
+  'list.php',
 ];
 
 self.addEventListener('install', event => {

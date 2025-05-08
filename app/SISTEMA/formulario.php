@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
     $result = mysqli_query($conexao, "INSERT INTO adm(nome,email,telefone,cidade,estado,endereco)
     VALUES ('$nome','$email','$telefone','$cidade','$estado','$endereco')");
 
-    header('Location: ../index.php');
+    header('Location: ../');
 }
 
 ?>
