@@ -419,7 +419,7 @@ De segunda a sexta-feira das 08h às 18h.
             <h3>Links</h3>
             <ul>
                 <li><a href="/" style="text-decoration: none; color: rgb(182, 179, 179);">Home</a></li>
-                <li><a href="lista_produto.php" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
+                <li><a href="list.php" style="text-decoration: none; color: rgb(182, 179, 179);">Produtos</a></li>
                 <li><a href="sobre.php" style="text-decoration: none; color: rgb(182, 179, 179);">Sobre</a></li>
                 <li><a href="Cadastro011/cadastro.php" style="text-decoration: none; color: rgb(182, 179, 179);">Cadastro</a></li>
             </ul>
